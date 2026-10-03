@@ -1,0 +1,42 @@
+identity:
+  name: scan_content
+  author: hexablob
+  label:
+    en_US: Scan content
+description:
+  human:
+    en_US: Inspect text for prompt injection and link reputation. Only allowed=true
+      may follow the configured workflow allow path. Errors, warn, block and truncated
+      link scans produce allowed=false.
+  llm: Inspect text for prompt injection and link reputation. Only allowed=true may
+    follow the configured workflow allow path. Errors, warn, block and truncated link
+    scans produce allowed=false.
+parameters:
+- name: content
+  type: string
+  required: true
+  label:
+    en_US: Content
+  human_description:
+    en_US: Exact untrusted text to inspect without truncation.
+  llm_description: Exact untrusted text to inspect without truncation.
+  form: llm
+- name: source_url
+  type: string
+  required: false
+  label:
+    en_US: Source url
+  human_description:
+    en_US: Optional original source URL, including query and fragment.
+  llm_description: Optional original source URL, including query and fragment.
+  form: llm
+output_schema:
+  type: object
+  properties:
+    allowed:
+      type: boolean
+    result:
+      type: object
+extra:
+  python:
+    source: tools/scan_content.py

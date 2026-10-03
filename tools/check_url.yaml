@@ -1,0 +1,31 @@
+identity:
+  name: check_url
+  author: hexablob
+  label:
+    en_US: Check URL
+description:
+  human:
+    en_US: Check a URL before a selected fetch. This tool checks reputation and never
+      fetches the destination. Allow is not proof of known-good reputation.
+  llm: Check a URL before a selected fetch. This tool checks reputation and never
+    fetches the destination. Allow is not proof of known-good reputation.
+parameters:
+- name: url
+  type: string
+  required: true
+  label:
+    en_US: Url
+  human_description:
+    en_US: Original URL with query, commas and fragment preserved.
+  llm_description: Original URL with query, commas and fragment preserved.
+  form: llm
+output_schema:
+  type: object
+  properties:
+    allowed:
+      type: boolean
+    result:
+      type: object
+extra:
+  python:
+    source: tools/check_url.py

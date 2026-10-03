@@ -1,0 +1,35 @@
+identity:
+  author: hexablob
+  name: ismalicious
+  label:
+    en_US: IsMalicious
+  description:
+    en_US: Prompt-injection and link-reputation checks for explicit workflow gates.
+  icon: icon.svg
+  tags:
+  - utilities
+credentials_for_provider:
+  api_key:
+    type: secret-input
+    required: true
+    label:
+      en_US: API key
+    help:
+      en_US: Get the matching key and secret from your IsMalicious account. Validation
+        consumes one scan.
+    url: https://ismalicious.com/app/account
+  api_secret:
+    type: secret-input
+    required: true
+    label:
+      en_US: API secret
+    help:
+      en_US: Get the matching key and secret from your IsMalicious account. Validation
+        consumes one scan.
+    url: https://ismalicious.com/app/account
+tools:
+- tools/scan_content.yaml
+- tools/check_url.yaml
+extra:
+  python:
+    source: provider/ismalicious.py
