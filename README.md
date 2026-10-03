@@ -26,15 +26,17 @@ Both tools return `allowed` and `result` output variables plus a JSON message. `
 
 ## Network and quotas
 
-Only `https://api.ismalicious.com/gate/scan` and `/gate/url` are contacted. TLS verification is enabled, redirects disabled, timeout 15 seconds. Gate requests consume your separate scan quota. This open-source integration does not make the hosted API unlimited or free.
+The plugin is free to install and contains no purchase or subscription checkout. It uses the external IsMalicious service, which requires an account and a matching API key and secret. API access has scan quotas and may require a paid subscription depending on your plan. Check your account plan before using the plugin.
 
-Remove credentials, passwords and sensitive personal information before scanning. Read [PRIVACY.md](PRIVACY.md) and the account terms before sending organizational data. The plugin requires Python 3.12 and Dify's plugin runtime.
+Only `https://api.ismalicious.com/gate/scan` and `/gate/url` are contacted. TLS verification is enabled, redirects disabled, timeout 15 seconds. Gate requests consume your separate scan quota.
+
+Submitted text and URLs can contain personal data or identifying indicators depending on what you select. They are transmitted to IsMalicious for prompt-injection and link-reputation analysis. The plugin does not automatically remove personal data. Remove passwords, authentication tokens and sensitive personal information before scanning. Read [PRIVACY.md](PRIVACY.md), the [IsMalicious privacy policy](https://ismalicious.com/privacy) and [account terms](https://ismalicious.com/terms) before sending organizational data. The plugin requires Python 3.12 and Dify's plugin runtime.
 
 ## Verification and limitations
 
 Tests invoke the released Dify Plugin SDK 0.10.2 with mocked HTTP transport, verify native output-variable messages and the explicit Boolean recipe condition, and cover refusals, malformed JSON, timeouts, quota failures and URL preservation. Synthetic fixtures demonstrate integration behavior, not detector accuracy.
 
-Installation and graph execution in Dify Community Edition or Dify Cloud have not yet been verified. The recipe is written instructions, not a tested importable workflow. Marketplace submission remains pending the author's review of the Plugin Developer Agreement. SDK tests are not CE or Cloud certification.
+Installation and graph execution in Dify Community Edition or Dify Cloud have not yet been verified. The recipe is written instructions, not a tested importable workflow. Marketplace publication remains pending the owner's explicit approval of the [Marketplace Agreement](https://dify.ai/legal/marketplace-agreement). SDK tests are not CE or Cloud certification.
 
 ## Development
 
